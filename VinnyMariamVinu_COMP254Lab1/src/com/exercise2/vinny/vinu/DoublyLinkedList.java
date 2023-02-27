@@ -1,5 +1,7 @@
 package com.exercise2.vinny.vinu;
 
+
+
 /**
  * @author Vinny Mariam Vinu - 301234317
  *
@@ -131,7 +133,8 @@ public class DoublyLinkedList<E> implements Cloneable
 		DoublyLinkedList<String> list3= (DoublyLinkedList<String>) list1.clone();
 		System.out.println(list3);
 		concatenate(list1, list2);
-		
+		//list1.concatenate(list2);
+		//System.out.println(list1);
 		
 		
 
@@ -148,5 +151,28 @@ public class DoublyLinkedList<E> implements Cloneable
 		
 	}
 
+	/*
+	public void concatenate(DoublyLinkedList<E> list) 
+	  {
+		  if (header == null) 
+		  {
+		        header = list.header;
+		        return;
+		    }
+		    if (list.header == null) 
+		    {
+		        return;
+		    }
+		    Node<E> current = header;
+		    while (current.next != null) 
+		    {
+		        current = current.next;
+		    }
+		  
+		    current.next = list.header;
+		    trailer=list.trailer;
+	  }
+	*/
+	
 }
 
