@@ -4,7 +4,7 @@ package com.exercise2.vinny.vinu;
  * @author Vinny Mariam Vinu - 301234317
  *
  */
-public class DoublyLinkedList<E>
+public class DoublyLinkedList<E> implements Cloneable
 {
 	private static class Node<E> 
 	{
@@ -113,7 +113,7 @@ public class DoublyLinkedList<E>
 	    sb.append(")");
 	    return sb.toString();
 	  }
-	public static void main(String[] args) 
+	public static void main(String[] args) throws CloneNotSupportedException, NullPointerException
 	{
 		// TODO Auto-generated method stub
 		DoublyLinkedList<String> list1 = new DoublyLinkedList<String>();
@@ -128,8 +128,14 @@ public class DoublyLinkedList<E>
 		list2.addLast("list2");
 		System.out.println(list2);
 		
+		DoublyLinkedList<String> list3= (DoublyLinkedList<String>) list1.clone();
+		System.out.println(list3);
 		concatenate(list1, list2);
-		//System.out.println(list1);
+		
+		
+		
+
+
 
 	}
 	private static void concatenate(DoublyLinkedList<String> list1, DoublyLinkedList<String> list2) 
