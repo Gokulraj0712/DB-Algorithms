@@ -269,7 +269,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 	  list.addFirst("LAX");
 	  System.out.println(list);
 	  
-	  System.out.println("Deleting 0th Node:");
+	  System.out.println("Deleting 3th Node:");
 	  list.deleteNode(3);
 	  System.out.println(list);
 	  //
