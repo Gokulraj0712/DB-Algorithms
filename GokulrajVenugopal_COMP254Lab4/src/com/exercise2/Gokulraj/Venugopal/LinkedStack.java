@@ -100,13 +100,18 @@ public class LinkedStack<E> extends Stack<E> {
     return list.toString();
   }
   
-  
+  /**
+   * Transfer all elements from Source stack to Target Stack
+   * Source stack will be empty after the operations
+   * @param Source - Source Stack
+   * @param Target - Target Stack
+   */
   public static void transfer(Stack<Integer> Source, Stack<Integer> Target)
   {
       //Loop executes Until Source is empty
       while(!Source.isEmpty())
       {
-          //Pop the top most element from Source
+          //Pop the top most element from Source and add to temp
           int temp = Source.pop();
           
           //Push temp into Target
@@ -125,11 +130,11 @@ public class LinkedStack<E> extends Stack<E> {
 	 **/
   public static void main(String[] args)
   {
-      //2 Stack Creation
+      //2 Stack Creation - Source Stack sourceS and Target Stack targetS
       Stack<Integer> sourceS = new Stack<Integer>();
       Stack<Integer> targetS = new Stack<Integer>();
       
-
+      //Adding elements to Source Stack
       sourceS.push(1);
       sourceS.push(2);
       sourceS.push(3);
@@ -137,16 +142,28 @@ public class LinkedStack<E> extends Stack<E> {
       sourceS.push(5);
       sourceS.push(6);
       System.out.println("Source Stack from Bottom to Top:");
-      sourceS.forEach(System.out::println);
+      
+      //Can be printed either using foreach loop either in both ways
+      //below method uses the Java 8 method reference syntax to print 
+      //each element of the sourceS collection to the console
+      //sourceS.forEach(System.out::println);  
+      
+      for(Integer s:sourceS)
+      {
+    	  System.out.println(s);
+      }
       
       System.out.println();
+      
+      //Function call to Transfer Source Stack elements to Empty Target Stack
       transfer(sourceS, targetS);
 
 
-      
+      //Prints Target Stack with elements 
       System.out.println("\nContents of new Transfer after transfer (Bottom to Top):");
       targetS.forEach(System.out::println);
       
+      //Prints a empty stack as Source Stack is Empty
       System.out.println("\nContents of Source Stack after transfer:\n");
       sourceS.forEach(System.out::println);
       System.out.print("Source Stack is Empty");

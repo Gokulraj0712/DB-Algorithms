@@ -424,61 +424,6 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
     return sb.toString();
   }
   
-  /**
-   * Returns the current index of the element stored at the given Position.
-   * 
-   * @param p the Position of the element to be searched
-   * @return the index of the element stored at the given Position, or -1 if not found
-   */
-  public int indexOf(Position<E> p) {
-      int index = 0;
-      for (Position<E> current : positions()) {
-          if (current.equals(p)) {
-              return index;
-          }
-          index++;
-      }
-      return -1;
-  }
-  
-
-	/** 
-	 *************************************************
-	 *************************************************
-	 ********Student Name: Gokulraj Venugopal*********
-	 ********Student ID: 301202722********************
-	 *************************************************
-	 *************************************************
-	 **/
-
-  public static void main(String[] args) {
-	  LinkedPositionalList<String> list = new LinkedPositionalList<>();
-	  Position<String> a = list.addFirst("a");
-	  Position<String> b = list.addAfter(a, "b");
-	  Position<String> c = list.addAfter(b, "c");
-
-	  System.out.println(a.getElement().toString() + " " +list.indexOf(a)); // prints 0
-	  System.out.println(b.getElement().toString() + " " +list.indexOf(b) ); // prints 1
-	  System.out.println(c.getElement().toString() + " " +list.indexOf(c)); // prints 2
-
-	  list.remove(b);
-	  System.out.println("Removed 'b'");
-	  System.out.println(a.getElement().toString() +" " + list.indexOf(a)); // prints 0
-	  System.out.println(c.getElement().toString() +" " + list.indexOf(c)); // prints 1
-
-	  LinkedPositionalList<String> list1 = new LinkedPositionalList<>();
-	  Position<String> p1 = list1.addLast("apple");
-	  Position<String> p2 = list1.addLast("banana");
-	  Position<String> p3 = list1.addLast("orange");
-	  Position<String> p4 = list1.addLast("pear");
-	  Position<String> p5 = list1.addFirst("mango");
-
-	  System.out.println(p1.getElement().toString()+" " + list1.indexOf(p1)); // Output: 1
-	  System.out.println(p2.getElement().toString()+" " +list1.indexOf(p2)); // Output: 2
-	  System.out.println(p3.getElement().toString() +" " +list1.indexOf(p3)); // Output: 3
-	  System.out.println(p4.getElement().toString()+" " +list1.indexOf(p4)); // Output: 4
-	  System.out.println(p5.getElement().toString()+" " +list1.indexOf(p5)); // Output: 0
-}
 }
 
 

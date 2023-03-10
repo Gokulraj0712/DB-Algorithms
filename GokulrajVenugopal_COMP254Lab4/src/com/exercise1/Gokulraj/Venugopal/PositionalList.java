@@ -144,4 +144,69 @@ public interface PositionalList<E> extends Iterable<E> {
    * @return iterable collection of the list's positions
    */
   Iterable<Position<E>> positions();
+  
+  /**
+   * Returns the current index of the element stored at the given Position.
+   * Used default type to add method defenition in Interface
+   * @param p the Position of the element to be searched
+   * @return the index of the element stored at the given Position, or -1 if not found
+   */
+  public default int indexOf(Position<E> p) {
+      int index = 0;
+      for (Position<E> current : positions()) {
+          if (current.equals(p)) {
+              return index; // return index of element
+          }
+          index++;
+      }
+      return -1; //return -1 if element not found
+  }
+  
+
+	/** 
+	 *************************************************
+	 *************************************************
+	 ********Student Name: Gokulraj Venugopal*********
+	 ********Student ID: 301202722********************
+	 *************************************************
+	 *************************************************
+	 **/
+
+  public static void main(String[] args) {
+	  //Creating list 1
+	  LinkedPositionalList<String> list = new LinkedPositionalList<>();
+	  System.out.println("List 1:");
+	  Position<String> a = list.addFirst("a");	// AddFirst with element a
+	  Position<String> b = list.addAfter(a, "b"); //Add element 'b' after 'a'
+	  Position<String> c = list.addAfter(b, "c"); //Add element 'c' after 'b'
+	  Position<String> d;
+	  
+	  System.out.println(a.getElement().toString() + " " +list.indexOf(a)); // prints 0
+	  System.out.println(b.getElement().toString() + " " +list.indexOf(b) ); // prints 1
+	  System.out.println(c.getElement().toString() + " " +list.indexOf(c)); // prints 2
+	  
+	  
+	  list.remove(b); //Removing element 'b'
+	  System.out.println("\nRemoved 'b'");
+	  System.out.println("\nUpdated List 1:");
+	  
+	  System.out.println(a.getElement().toString() +" " + list.indexOf(a)); // prints 0
+	  System.out.println(c.getElement().toString() +" " + list.indexOf(c)); // prints 1
+
+	  //Creating list 2
+	  PositionalList<String> list1 = new LinkedPositionalList<>();
+	  System.out.println("\nList 2:");
+	  Position<String> p1 = list1.addLast("apple"); // Adding 'apple' to end of list
+	  Position<String> p2 = list1.addLast("banana"); // Adding 'banana' to end of list
+	  Position<String> p3 = list1.addLast("orange"); // Adding 'orange' to end of list
+	  Position<String> p4 = list1.addLast("pear");	// Adding 'pear' to end of list
+	  Position<String> p5 = list1.addFirst("mango");	// Adding 'mango end of list
+
+	  System.out.println(p1.getElement().toString()+" " + list1.indexOf(p1)); // Output: 1
+	  System.out.println(p2.getElement().toString()+" " +list1.indexOf(p2)); // Output: 2
+	  System.out.println(p3.getElement().toString() +" " +list1.indexOf(p3)); // Output: 3
+	  System.out.println(p4.getElement().toString()+" " +list1.indexOf(p4)); // Output: 4
+	  System.out.println(p5.getElement().toString()+" " +list1.indexOf(p5)); // Output: 0
+  }
 }
+

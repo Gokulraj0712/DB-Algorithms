@@ -81,6 +81,10 @@ public class LinkedQueue<E> implements Queue<E> {
     return list.toString();
   }
   
+  /**
+   * Function to Concatenate Source Q q1 to Target Q q2
+   * @param Queue q2
+   */
   public void concat(LinkedQueue<E> q2)
   {
 	  if (q2.first()!=null) // something is in the queue
@@ -101,24 +105,31 @@ public class LinkedQueue<E> implements Queue<E> {
 
   public static void  main(String[] args) 
   {
-	  //2 Queue Creation
+	  //2 Queue Creation - Source Q and Target Q
 	  LinkedQueue<Integer> sourceQ = new LinkedQueue<Integer>();
       LinkedQueue<Integer> targetQ = new LinkedQueue<Integer>();
       
+      //Adding elements to Source Q
       sourceQ.enqueue(3);
       sourceQ.enqueue(4);
       System.out.println("Source Queue:");
       System.out.println(sourceQ.toString());
       
+    //Adding elements to Target Q
       targetQ.enqueue(1);
       targetQ.enqueue(2);
       System.out.println("\nTarget Queue:");
       System.out.println(targetQ.toString());
       
+      //Concatenate Function call in which Source Q elements will be added to the end 
+      //of Target Q
       targetQ.concat(sourceQ);
       
+      //Printing Source Q - EMpty
       System.out.println("\nSource Queue After Concatination:");
       System.out.println(sourceQ.toString());
+      
+      //Printing Target Q- Concatenated Q
       System.out.println("\nTarget Queue After Concatination:");
       System.out.println(targetQ.toString());
   }
