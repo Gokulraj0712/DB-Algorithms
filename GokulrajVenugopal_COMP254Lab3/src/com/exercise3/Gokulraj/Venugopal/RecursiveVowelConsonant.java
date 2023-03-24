@@ -12,8 +12,7 @@ public class RecursiveVowelConsonant {
 
 	    //Changing first character to lowercase
 	    char firstChar = Character.toLowerCase(str.charAt(0));	
-	    
-	    
+	        
 	  /*
 	   * vowels will be incremented by 1 if the first character is present in 'aeiou' 
 	   * else, consonants will be incremented by 1
