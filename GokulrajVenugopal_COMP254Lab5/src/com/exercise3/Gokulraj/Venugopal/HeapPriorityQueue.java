@@ -230,3 +230,17 @@ public class HeapPriorityQueue<K,V> extends AbstractPriorityQueue<K,V> {
 	    };
   }
 }
+
+/**
+ * Upheap method is a procedure used in heap data structure to maintain 
+ * the heap property after inserting a new element into the heap. 
+ * In a max-heap, the maximum element is always at the root of the heap, 
+ * and in a min-heap, the minimum element is at the root.
+
+	The upheap method works by comparing the newly inserted 
+	element with its parent node and swapping them if the parent 
+	is smaller in the case of a max-heap or larger in the case of a min-heap. 
+	This process is repeated until the parent node is no longer smaller 
+	or larger than the new element, 
+	or the new element has become the root of the heap.
+*/

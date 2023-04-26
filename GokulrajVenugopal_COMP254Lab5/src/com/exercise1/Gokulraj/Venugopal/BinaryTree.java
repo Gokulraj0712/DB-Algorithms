@@ -97,29 +97,50 @@ public interface BinaryTree<E> extends Tree<E> {
   */
 	public default Position<E> inorderNext(Position<E> p)
 	{
-		if(right(p) != null)
+		if(right(p) != null) // right child of the current position p is not null
 		{
-			Position<E> k = right(p);
-			while(left(k) != null)
+			Position<E> k = right(p); // The code first sets k to the right child of p 
+			while(left(k) != null) // iteratively sets k to its left child until there are no more left children
 			{
-				k = left(k);
+				k = left(k); //k is the leftmost position in the right subtree of p
 			}
 			return k;
 		}
+		/*
+		 If the right child of the current position p is null and 
+		 p does not have a parent, p is the rightmost node in the tree, 
+		 and there is no next position in the inorder traversal. 
+		 The method returns null.
+		 */
 		if(parent(p) == null)
 			return null;
 		
+		/*
+		 If p is the left child of its parent k, 
+		 the next position in the inorder traversal is the parent k.
+		 */
 		Position<E> k = parent(p);
-		
 		if(left(k) != null && left(k) == p)
 			return k;
 		
+		/*
+		If p is the right child of its parent k, the method needs to backtrack up
+		 the tree to find the next position in the inorder traversal. 
+		 The code sets p to k and then sets k to its parent until k is 
+		 null or p is the left child of k.
+		 */
 		while(k != null && (right(k) == null || right(k) == p))
 		{
 			p = k;
 			k = parent(k);
 		}
 	
+		/*
+		 * If k is null, there is no next position in the inorder traversal, 
+		 * and the method returns null. Otherwise, 
+		 * the next position in the inorder traversal is k, 
+		 * and the method returns it.
+		 */
 		if(k == null)
 			return null;
 	
@@ -152,6 +173,22 @@ public interface BinaryTree<E> extends Tree<E> {
 	 Position<Integer> p10 = T.addRight(p9, 44);
 	 Position<Integer> p11 = T.addRight(p4, 60);
 	 Position<Integer> p12 = T.addRight(p11, 63);
+	 
+   
+
+	 
+	 /**
+	  *        
+				  		 45
+				       /    \
+				   	  35    55
+				     /  \   / \
+				    25  40 50 60
+				     /   \     \
+				    38   42    63
+				     \    \
+				     39   44
+	  */
 
 	 //Display the preorder traversal of T
 	 System.out.print("Preorder traversal of T: ");
@@ -174,6 +211,7 @@ public interface BinaryTree<E> extends Tree<E> {
 	 System.out.println();
 
 	 //Display the inorder traversal of T
+	 // Left Root Right
 	 System.out.print("Inorder traversal of T: ");
 	 Iterable<Position<Integer>> itr1 = T.inorder();
 	 for(Position<Integer> p : itr1)

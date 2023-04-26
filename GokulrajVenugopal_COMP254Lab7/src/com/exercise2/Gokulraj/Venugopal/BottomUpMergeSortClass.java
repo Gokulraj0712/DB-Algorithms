@@ -90,3 +90,10 @@ public class BottomUpMergeSortClass {
 		  }
 	  }
 	}
+
+
+/**
+Bottom-up Merge Sort is an algorithm for sorting a sequence of elements 
+by dividing it into smaller sub-sequences, sorting those sub-sequences, 
+and then merging them back together in sorted order.
+*/

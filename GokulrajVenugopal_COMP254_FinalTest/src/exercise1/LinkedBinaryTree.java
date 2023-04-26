@@ -323,6 +323,23 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 	  return sum;
 	}
   
+  @SuppressWarnings("unchecked")
+  public static <E> int FindSumOfDepth(LinkedBinaryTree T) {
+  	  if (T.root() == null) //if tree is empty return null
+  	    {
+  	        return 0;
+  	    }
+   
+  	    int sum = 0;
+  	    Iterable<Position<String>> iterator1 = T.inorder();
+  	    for(Position<String> p : iterator1)
+  	    	sum += T.depth((Position<E>) p);
+  	    
+  	    return sum;
+    
+    }
+
+  
   
   public static void main(String[] args) {
 	  LinkedBinaryTree<Integer> tree = new LinkedBinaryTree<>();
@@ -333,7 +350,12 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 	  Position<Integer> p4 = tree.addRight(p1, 5);
 	  Position<Integer> p5 = tree.addLeft(p2, 6);
 	  Position<Integer> p6 = tree.addRight(p2, 7);
-	  System.out.println("The sum of depths of all positions in the tree: " + tree.sumOfDepths());
+	  System.out.println("The sum of depths of all positions in the tree quadratic runtime: " + tree.sumOfDepths());
+	  
+	  System.out.println("The sum of depths of all positions in the tree Linear runtime: " + FindSumOfDepth(tree));
+	  
+	  
+	  
 	}
   
   /**

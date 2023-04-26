@@ -19,6 +19,8 @@ public class TreeHeight {
 	 * @param Tree t
 	 * @param Position p
 	 * @return height of the Element
+	 * we first visit all the children of the current node recursively, 
+	 * and then visit the current node.
 	 */
 	public static int postorderTraversal(Tree t, Position p) {
 	    int height = 0;
@@ -51,6 +53,17 @@ public class TreeHeight {
 		Position<String> p4 = T.addRight(p1, "E");
 		Position<String> p5 = T.addLeft(p2, "F");
 		Position<String> p6 = T.addRight(p2, "G");
+		
+		/**
+		 * 				       A
+						     /   \
+						    B     C
+						   / \   / \
+						  D   E F   G
+
+			The height of a node is defined as the number of 
+			edges on the longest simple path from the node to a leaf node
+		 */
 
 		//Function Call to printSubtreeHeight
 		printSubtreeHeight(T);

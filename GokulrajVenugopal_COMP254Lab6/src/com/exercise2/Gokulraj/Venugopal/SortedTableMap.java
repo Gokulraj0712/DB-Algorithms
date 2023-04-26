@@ -84,9 +84,11 @@ public class SortedTableMap<K,V> extends AbstractSortedMap<K,V> {
   public boolean containKey(K key)
   {
 	  //use findIndex method to check for the key in your map
-	  checkKey(key);
+	  checkKey(key);//ensures that the given key is not null
 	    int j = findIndex(key);
 	    return (j < size() && compare(key, table.get(j)) == 0);
+	    //j < size() checks if the index returned by findIndex is 
+	    //within the bounds of the map's internal data structure
   }
 
   /**

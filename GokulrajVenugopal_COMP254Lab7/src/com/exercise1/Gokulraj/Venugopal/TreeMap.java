@@ -549,10 +549,12 @@ public class TreeMap<K,V> extends AbstractSortedMap<K,V> {
       System.out.println("Iterative search for key 4:");
       System.out.println(p1.getElement().getKey() + " : " + p1.getElement().getValue());
 
-      // Iterative tree search for missing key
+      // Iterative tree search 
       Position<Entry<Integer, String>> p2 = map.IterativetreeSearch(map.root(), 1);
       System.out.println("Iterative search for key 1:");
       System.out.println(p2.getElement().getKey() + " : " + p2.getElement().getValue()); 
+ 
+      
   }
   
 }
